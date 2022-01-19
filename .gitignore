@@ -18,6 +18,7 @@
 **/build/
 .gradle/
 build/
+out/
 
 #FILES FOR DEV WORKSPACE
 #===============================

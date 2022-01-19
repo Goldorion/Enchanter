@@ -27,5 +27,8 @@ CurseForge: [https://www.curseforge.com/minecraft/mc-mods/enchanter](https://www
 ### Tools:
 * Farmer: Till the dirt and grass blocks in a square with a radius of level * 2 + 1
 
+### Weapons:
+* Multi Arrows (Bow): +1 arrow / level
+
 ### Misc:
 * Magma Walker: Change lava into magma blocks when walking on it and disable damages when walking on magma blocks, but removes 1 durability for every damage

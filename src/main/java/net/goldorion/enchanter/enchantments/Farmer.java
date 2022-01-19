@@ -1,5 +1,6 @@
 package net.goldorion.enchanter.enchantments;
 
+import net.goldorion.enchanter.ModEnchantments;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -13,7 +14,7 @@ import net.minecraft.world.level.block.GrassBlock;
 
 public class Farmer extends Enchantment {
     public Farmer() {
-        super(Rarity.UNCOMMON, EnchantmentCategory.DIGGER, new EquipmentSlot[]{EquipmentSlot.MAINHAND, EquipmentSlot.OFFHAND});
+        super(Rarity.UNCOMMON, EnchantmentCategory.DIGGER, ModEnchantments.HANDS);
     }
 
     public static void applyEffectOnBlocks(Player player, InteractionHand hand, BlockPos pos, ItemStack stack, int level) {

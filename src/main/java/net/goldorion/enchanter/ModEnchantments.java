@@ -14,19 +14,23 @@ import java.util.List;
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModEnchantments {
     private static final List<Enchantment> enchantments = new ArrayList<>();
-    private static final EquipmentSlot[] ALL_ARMORS = new EquipmentSlot[]{EquipmentSlot.HEAD, EquipmentSlot.CHEST, EquipmentSlot.LEGS, EquipmentSlot.FEET};
+    public static final EquipmentSlot[] ARMORS = new EquipmentSlot[]{EquipmentSlot.HEAD, EquipmentSlot.CHEST, EquipmentSlot.LEGS, EquipmentSlot.FEET};
+    public static final EquipmentSlot[] HANDS = new EquipmentSlot[]{EquipmentSlot.MAINHAND, EquipmentSlot.OFFHAND};
 
     //Protections
     public static final Enchantment CACTUS_PROTECTION = register("cactus_protection", new ModProtectionEnchantment(Enchantment.Rarity.UNCOMMON,
-            ModProtectionEnchantment.Type.CACTUS, EnchantmentCategory.ARMOR, ALL_ARMORS));
+            ModProtectionEnchantment.Type.CACTUS, EnchantmentCategory.ARMOR, ARMORS));
     public static final Enchantment FALLING_BLOCK_PROTECTION = register("falling_block_protection", new ModProtectionEnchantment(Enchantment.Rarity.UNCOMMON,
             ModProtectionEnchantment.Type.FALLING_BLOCK, EnchantmentCategory.ARMOR_HEAD, EquipmentSlot.HEAD));
     public static final Enchantment LIGHTNING_BOLT_PROTECTION = register("lightning_bolt_protection", new ModProtectionEnchantment(Enchantment.Rarity.UNCOMMON,
-            ModProtectionEnchantment.Type.LIGHTNING_BOLT, EnchantmentCategory.ARMOR, ALL_ARMORS));
+            ModProtectionEnchantment.Type.LIGHTNING_BOLT, EnchantmentCategory.ARMOR, ARMORS));
 
 
     // Tools
     public static final Enchantment FARMER = register("farmer", new Farmer());
+
+    // Weapons
+    public static final Enchantment  MULTI_ARROWS = register("multi_arrows", new MultiArrows());
 
     // Treasures
     public static Enchantment SECOND_CHANCE = register("second_chance", new SecondChance());
