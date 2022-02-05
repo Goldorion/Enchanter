@@ -8,6 +8,7 @@ import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Utils {
 
@@ -29,11 +30,21 @@ public class Utils {
         return EnchantmentHelper.getItemEnchantmentLevel(enchantment, itemstack) >= level;
     }
 
+    public static int getHighestLevel(Iterable<ItemStack> stacks, Enchantment enchantment) {
+        AtomicInteger level = new AtomicInteger();
+        stacks.forEach(stack -> {
+            if (hasEnchantment(stack, enchantment) && level.get() < EnchantmentHelper.getItemEnchantmentLevel(enchantment, stack))
+                level.set(EnchantmentHelper.getItemEnchantmentLevel(enchantment, stack));
+        });
+
+        return level.get();
+    }
+
     public static CompoundTag getEnchantment(Enchantment enchantment, ItemStack stack) {
         ResourceLocation resourcelocation = EnchantmentHelper.getEnchantmentId(enchantment);
         ListTag listtag = stack.getEnchantmentTags();
 
-        for(int i = 0; i < listtag.size(); ++i) {
+        for (int i = 0; i < listtag.size(); ++i) {
             CompoundTag compoundtag = listtag.getCompound(i);
             ResourceLocation resourcelocation1 = EnchantmentHelper.getEnchantmentId(compoundtag);
             if (resourcelocation1 != null && resourcelocation1.equals(resourcelocation)) {
@@ -49,7 +60,7 @@ public class Utils {
         ResourceLocation resourcelocation = EnchantmentHelper.getEnchantmentId(enchantment);
         ListTag listtag = stack.getEnchantmentTags();
 
-        for(int i = 0; i < listtag.size(); ++i) {
+        for (int i = 0; i < listtag.size(); ++i) {
             CompoundTag compoundtag = listtag.getCompound(i);
             ResourceLocation rl = EnchantmentHelper.getEnchantmentId(compoundtag);
             if (rl != null && rl.equals(resourcelocation)) {

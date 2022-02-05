@@ -39,6 +39,7 @@ public class ModEnchantments {
 
     // Curses
     public static final Enchantment SLEEPLESS_NIGHT = register("sleepless_night", new SleeplessNight());
+    public static final Enchantment WRONG_BLOCK = register("wrong_block", new WrongBlock());
 
     //Misc
     public static final Enchantment MAGMA_WALKER = register("magma_walker", new MagmaWalkerEnchantment(Enchantment.Rarity.RARE, EquipmentSlot.FEET));

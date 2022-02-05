@@ -13,6 +13,7 @@ CurseForge: [https://www.curseforge.com/minecraft/mc-mods/enchanter](https://www
 
 ### Curses:
 * Sleepless Night: You can't sleep! You're too busy to sleep anyway.
+* Wrong block (Armor): Randomly teleport you in a square of 2 * *level* blocks
 
 ### Protections:
 * Falling Block Protection (Helmet): 0.5 heart/level

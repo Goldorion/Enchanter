@@ -10,3 +10,6 @@
 - Magma Walker: Change lava into magma blocks when walking on it and disable damages when walking on magma blocks, but removes 1 durability for every damage
 - Farmer: Till the dirt and grass blocks in a square with a radius of *level* * 2 + 1
 - Sleepless Night: You can't sleep!
+- Multi Arrows (Bow): +1 arrow / level
+- Unvanishable: Each time, the entity item life reaches 0 tick, 5 more minutes will be added for each level. Remove 1 level/5 minutes.
+- Wrong block (Armor): Randomly teleport you in a square of 2 * *level* blocks
