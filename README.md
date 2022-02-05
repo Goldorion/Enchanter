@@ -17,9 +17,8 @@ CurseForge: [https://www.curseforge.com/minecraft/mc-mods/enchanter](https://www
 
 ### Protections:
 * Falling Block Protection (Helmet): 0.5 heart/level
-    Lightning Bolt Protection: Fewer damages when struck by a lightning bolt
-    Cactus Protection:
-
+* Lightning Bolt Protection: Fewer damages when struck by a lightning bolt
+* Cactus Protection:
     * Without: 4 damages before taking one
     * 1: 12 damages before taking one
     * 2: 14 damages before taking one
