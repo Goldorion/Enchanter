@@ -1,4 +1,4 @@
-package net.goldorion.enchanter.events;
+package net.goldorion.enchanter.events.entity.living;
 
 import net.goldorion.enchanter.ModEnchantments;
 import net.goldorion.enchanter.Utils;
@@ -9,7 +9,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber
-public class LivingUseItemEvents {
+public class UseItemEvents {
 
     @SubscribeEvent
     public static void onStopUsingItem(LivingEntityUseItemEvent.Stop event) {

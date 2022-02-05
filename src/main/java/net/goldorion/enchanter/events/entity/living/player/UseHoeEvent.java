@@ -1,4 +1,4 @@
-package net.goldorion.enchanter.events;
+package net.goldorion.enchanter.events.entity.living.player;
 
 import net.goldorion.enchanter.ModEnchantments;
 import net.goldorion.enchanter.enchantments.Farmer;

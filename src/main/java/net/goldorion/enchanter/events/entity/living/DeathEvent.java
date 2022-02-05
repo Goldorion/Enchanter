@@ -1,4 +1,4 @@
-package net.goldorion.enchanter.events;
+package net.goldorion.enchanter.events.entity.living;
 
 import net.goldorion.enchanter.ModEnchantments;
 import net.minecraft.core.BlockPos;
@@ -18,7 +18,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import java.util.Objects;
 
 @Mod.EventBusSubscriber
-public class LivingDeathEvent {
+public class DeathEvent {
 
     @SubscribeEvent
     public static void onEntityDeath(net.minecraftforge.event.entity.living.LivingDeathEvent event) {

@@ -1,4 +1,4 @@
-package net.goldorion.enchanter.events;
+package net.goldorion.enchanter.events.entity.living;
 
 import net.goldorion.enchanter.ModEnchantments;
 import net.minecraft.world.damagesource.DamageSource;
@@ -8,7 +8,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber
-public class LivingDamageEvent {
+public class DamageEvent {
 
     @SubscribeEvent
     public static void onEntityDamagedEvent(net.minecraftforge.event.entity.living.LivingDamageEvent event) {

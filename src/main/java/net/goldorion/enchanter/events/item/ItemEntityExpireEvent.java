@@ -1,4 +1,4 @@
-package net.goldorion.enchanter.events;
+package net.goldorion.enchanter.events.item;
 
 import net.goldorion.enchanter.ModEnchantments;
 import net.goldorion.enchanter.Utils;
