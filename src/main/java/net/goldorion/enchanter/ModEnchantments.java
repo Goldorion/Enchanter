@@ -16,6 +16,8 @@ public class ModEnchantments {
     private static final List<Enchantment> enchantments = new ArrayList<>();
     public static final EquipmentSlot[] ARMORS = new EquipmentSlot[]{EquipmentSlot.HEAD, EquipmentSlot.CHEST, EquipmentSlot.LEGS, EquipmentSlot.FEET};
     public static final EquipmentSlot[] HANDS = new EquipmentSlot[]{EquipmentSlot.MAINHAND, EquipmentSlot.OFFHAND};
+    public static final EquipmentSlot[] ALL = new EquipmentSlot[] {EquipmentSlot.HEAD, EquipmentSlot.CHEST,
+            EquipmentSlot.LEGS, EquipmentSlot.FEET, EquipmentSlot.MAINHAND, EquipmentSlot.OFFHAND};
 
     //Protections
     public static final Enchantment CACTUS_PROTECTION = register("cactus_protection", new ModProtectionEnchantment(Enchantment.Rarity.UNCOMMON,
@@ -40,6 +42,7 @@ public class ModEnchantments {
 
     //Misc
     public static final Enchantment MAGMA_WALKER = register("magma_walker", new MagmaWalkerEnchantment(Enchantment.Rarity.RARE, EquipmentSlot.FEET));
+    public static final Enchantment UNVANISHABLE = register("unvanishable", new Unvanishable());
 
     private static Enchantment register(String registryName, Enchantment enchantment) {
         enchantments.add(enchantment.setRegistryName(registryName));

@@ -9,9 +9,10 @@ CurseForge: [https://www.curseforge.com/minecraft/mc-mods/enchanter](https://www
 ### Treasures:
 
 * Second chance (Chestplate): The player is kept to 0.5 hearths, but if durability is 1, the chest plate breaks, otherwise the durability is set to 1.
+* Unvanishable: Each time, the entity item life reaches 0 tick, 5 more minutes will be added for each level. Remove 1 level/5 minutes.
 
 ### Curses:
-* Sleepless Night: You can't sleep! You're too busy to sleep anyways.
+* Sleepless Night: You can't sleep! You're too busy to sleep anyway.
 
 ### Protections:
 * Falling Block Protection (Helmet): 0.5 heart/level
