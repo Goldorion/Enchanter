@@ -56,45 +56,12 @@ public class PlayerEvents {
     }
 
     @SubscribeEvent
-    public static void onEntityDamagedEvent(LivingDamageEvent event) {
-        if (event.getEntityLiving() instanceof Player player) {
-            //Magma Walker enchantment
-            if (event.getSource() == DamageSource.HOT_FLOOR) {
-                player.getArmorSlots().forEach(itemstack -> {
-                    if (EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.MAGMA_WALKER, itemstack) != 0) {
-                        event.setCanceled(true);
-                    }
-                });
-            }
-        }
-    }
-
-    @SubscribeEvent
     public static void onEntityUpdate(LivingEvent.LivingUpdateEvent event) {
         if (event.getEntityLiving() instanceof Player player) {
             if (Utils.hasEnchantment(player.getItemBySlot(EquipmentSlot.FEET), ModEnchantments.MAGMA_WALKER)) {
                 MagmaWalkerEnchantment.onEntityMoved(player, player.getLevel(), player.blockPosition(),
                         EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.MAGMA_WALKER, player.getItemBySlot(EquipmentSlot.FEET)));
             }
-        }
-    }
-
-    @SubscribeEvent
-    public static void onItemUsed(UseHoeEvent event) {
-        if (event.getEntityLiving() instanceof Player player) {
-            ItemStack itemstack = event.getContext().getItemInHand();
-            if (itemstack.getItem() instanceof HoeItem && EnchantmentHelper.getItemEnchantmentLevel(
-                    ModEnchantments.FARMER, itemstack) != 0) {
-                Farmer.applyEffectOnBlocks(player, event.getContext().getHand(), event.getContext().getClickedPos(), itemstack,
-                        EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.FARMER, itemstack));
-            }
-        }
-    }
-
-    @SubscribeEvent
-    public static void onPlayerSleep(PlayerSleepInBedEvent event) {
-        if (Utils.hasEnchantment(event.getPlayer().getArmorSlots(), ModEnchantments.SLEEPLESS_NIGHT)) {
-            event.setResult(Player.BedSleepingProblem.OTHER_PROBLEM);
         }
     }
 }
