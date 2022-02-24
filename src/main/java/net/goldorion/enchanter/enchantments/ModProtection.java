@@ -7,15 +7,15 @@ import net.minecraft.world.item.enchantment.*;
 
 import java.util.List;
 
-public class ModProtectionEnchantment extends Enchantment {
+public class ModProtection extends Enchantment {
 
     private final Type type;
 
-    public ModProtectionEnchantment(Rarity rarity, Type type, EnchantmentCategory category, EquipmentSlot slot) {
+    public ModProtection(Rarity rarity, Type type, EnchantmentCategory category, EquipmentSlot slot) {
         this(rarity, type, category, new EquipmentSlot[]{slot});
     }
 
-    public ModProtectionEnchantment(Rarity rarity, Type type, EnchantmentCategory category, EquipmentSlot[] slots) {
+    public ModProtection(Rarity rarity, Type type, EnchantmentCategory category, EquipmentSlot[] slots) {
         super(rarity, category, slots);
         this.type = type;
     }

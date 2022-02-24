@@ -17,8 +17,8 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraftforge.common.util.BlockSnapshot;
 import net.minecraftforge.event.ForgeEventFactory;
 
-public class MagmaWalkerEnchantment extends Enchantment {
-    public MagmaWalkerEnchantment(Rarity rarity, EquipmentSlot slot) {
+public class MagmaWalker extends Enchantment {
+    public MagmaWalker(Rarity rarity, EquipmentSlot slot) {
         super(rarity, EnchantmentCategory.ARMOR_FEET, new EquipmentSlot[]{slot});
     }
 

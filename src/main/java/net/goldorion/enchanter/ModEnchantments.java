@@ -20,12 +20,12 @@ public class ModEnchantments {
             EquipmentSlot.LEGS, EquipmentSlot.FEET, EquipmentSlot.MAINHAND, EquipmentSlot.OFFHAND};
 
     //Protections
-    public static final Enchantment CACTUS_PROTECTION = register("cactus_protection", new ModProtectionEnchantment(Enchantment.Rarity.UNCOMMON,
-            ModProtectionEnchantment.Type.CACTUS, EnchantmentCategory.ARMOR, ARMORS));
-    public static final Enchantment FALLING_BLOCK_PROTECTION = register("falling_block_protection", new ModProtectionEnchantment(Enchantment.Rarity.UNCOMMON,
-            ModProtectionEnchantment.Type.FALLING_BLOCK, EnchantmentCategory.ARMOR_HEAD, EquipmentSlot.HEAD));
-    public static final Enchantment LIGHTNING_BOLT_PROTECTION = register("lightning_bolt_protection", new ModProtectionEnchantment(Enchantment.Rarity.UNCOMMON,
-            ModProtectionEnchantment.Type.LIGHTNING_BOLT, EnchantmentCategory.ARMOR, ARMORS));
+    public static final Enchantment CACTUS_PROTECTION = register("cactus_protection", new ModProtection(Enchantment.Rarity.UNCOMMON,
+            ModProtection.Type.CACTUS, EnchantmentCategory.ARMOR, ARMORS));
+    public static final Enchantment FALLING_BLOCK_PROTECTION = register("falling_block_protection", new ModProtection(Enchantment.Rarity.UNCOMMON,
+            ModProtection.Type.FALLING_BLOCK, EnchantmentCategory.ARMOR_HEAD, EquipmentSlot.HEAD));
+    public static final Enchantment LIGHTNING_BOLT_PROTECTION = register("lightning_bolt_protection", new ModProtection(Enchantment.Rarity.UNCOMMON,
+            ModProtection.Type.LIGHTNING_BOLT, EnchantmentCategory.ARMOR, ARMORS));
 
 
     // Tools
@@ -40,9 +40,10 @@ public class ModEnchantments {
     // Curses
     public static final Enchantment SLEEPLESS_NIGHT = register("sleepless_night", new SleeplessNight());
     public static final Enchantment WRONG_BLOCK = register("wrong_block", new WrongBlock());
+    public static final Enchantment SLIPPERY_ROPE = register("slippery_rope", new SlipperyRope());
 
     //Misc
-    public static final Enchantment MAGMA_WALKER = register("magma_walker", new MagmaWalkerEnchantment(Enchantment.Rarity.RARE, EquipmentSlot.FEET));
+    public static final Enchantment MAGMA_WALKER = register("magma_walker", new MagmaWalker(Enchantment.Rarity.RARE, EquipmentSlot.FEET));
     public static final Enchantment UNVANISHABLE = register("unvanishable", new Unvanishable());
 
     private static Enchantment register(String registryName, Enchantment enchantment) {
