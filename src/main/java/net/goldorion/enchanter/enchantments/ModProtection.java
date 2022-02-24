@@ -4,6 +4,7 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.*;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
@@ -39,7 +40,7 @@ public class ModProtection extends Enchantment {
     }
 
     @Override
-    public int getDamageProtection(int level, DamageSource damageSource) {
+    public int getDamageProtection(int level, @NotNull DamageSource damageSource) {
         if (type.getSources().contains(damageSource))
             return level * type.getDamageProtectionMultiplier();
         else

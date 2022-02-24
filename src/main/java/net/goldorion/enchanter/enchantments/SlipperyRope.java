@@ -11,11 +11,11 @@ public class SlipperyRope extends Enchantment {
     }
 
     public int getMinCost(int level) {
-        return 20;
+        return level * 20;
     }
 
     public int getMaxCost(int level) {
-        return 50;
+        return level * 50;
     }
 
     public int getMaxLevel() {
