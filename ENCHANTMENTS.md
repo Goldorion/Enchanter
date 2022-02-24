@@ -11,6 +11,7 @@
 - Farmer: Till the dirt and grass blocks in a square with a radius of *level* * 2 + 1
 - Sleepless Night: You can't sleep!
 - Multi Arrows (Bow): +1 arrow / level
-- Unvanishable: Each time, the entity item life reaches 0 tick, 5 more minutes will be added for each level. Remove 1 level/5 minutes.
+- Unvanishable: Each time, the entity item life reaches 0 tick, 5 more minutes will be added for each level. Remove 1 level/5 minutes
 - Wrong block (Armor): Randomly teleport you in a square of 2 * *level* blocks
 - Slippery rope: 20%/level of chance to fail shouting with the bow
+- Hylian Shield: The shield works as normally, but it does not take damage values

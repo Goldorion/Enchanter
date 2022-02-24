@@ -1,5 +1,6 @@
 package net.goldorion.enchanter;
 
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
 import org.jetbrains.annotations.NotNull;
 
@@ -40,5 +41,10 @@ public class GenericEnchantment extends Enchantment {
     @Override
     protected boolean checkCompatibility(@NotNull Enchantment enchantment) {
         return super.checkCompatibility(enchantment) && (builder.getCheckCompatibility() != null ? builder.getCheckCompatibility().apply(enchantment) : true);
+    }
+
+    @Override
+    public boolean canEnchant(@NotNull ItemStack itemstack) {
+        return super.canEnchant(itemstack) && (builder.getCanEnchant() != null ? builder.getCanEnchant().apply(itemstack) : true);
     }
 }

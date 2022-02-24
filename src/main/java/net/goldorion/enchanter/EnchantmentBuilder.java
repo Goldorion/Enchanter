@@ -1,6 +1,7 @@
 package net.goldorion.enchanter;
 
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
 
@@ -14,13 +15,15 @@ public class EnchantmentBuilder {
     private int maxLevel = 1;
     private int minCost = 0;
     private int maxCost = 0;
-    private Function<Enchantment, Boolean> checkCompatibility;
     private boolean isTreasure;
     private boolean isCurse;
+    private Function<Enchantment, Boolean> checkCompatibility;
+    private Function<ItemStack, Boolean> canEnchant;
 
     public EnchantmentBuilder(EnchantmentCategory category, EquipmentSlot[] slots) {
         this(Enchantment.Rarity.COMMON, category, slots);
     }
+
     public EnchantmentBuilder(Enchantment.Rarity rarity, EnchantmentCategory category, EquipmentSlot[] slots) {
         this.rarity = rarity;
         this.category = category;
@@ -72,6 +75,15 @@ public class EnchantmentBuilder {
 
     public EnchantmentBuilder setCheckCompatibility(Function<Enchantment, Boolean> checkCompatibility) {
         this.checkCompatibility = checkCompatibility;
+        return this;
+    }
+
+    public Function<ItemStack, Boolean> getCanEnchant() {
+        return canEnchant;
+    }
+
+    public EnchantmentBuilder setCanEnchant(Function<ItemStack, Boolean> canEnchant) {
+        this.canEnchant = canEnchant;
         return this;
     }
 
