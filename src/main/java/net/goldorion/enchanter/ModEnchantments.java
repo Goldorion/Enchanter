@@ -47,11 +47,11 @@ public class ModEnchantments {
     // Curses
     public static final Enchantment SLEEPLESS_NIGHT = register("sleepless_night", new GenericEnchantment(new EnchantmentBuilder(Rarity.VERY_RARE, EnchantmentCategory.ARMOR, ARMORS).setMinCost(25).setMaxCost(50).setTreasure().setCurse()));
     public static final Enchantment WRONG_BLOCK = register("wrong_block", new GenericEnchantment(new EnchantmentBuilder(Rarity.RARE, EnchantmentCategory.ARMOR, ARMORS).setMaxLevel(5).setTreasure().setCurse()));
-    public static final Enchantment SLIPPERY_ROPE = register("slippery_rope", new SlipperyRope());
+    public static final Enchantment SLIPPERY_ROPE = register("slippery_rope", new GenericEnchantment(new EnchantmentBuilder(Rarity.RARE, EnchantmentCategory.BOW, HANDS).setMaxLevel(4).setMinCost(20).setMaxCost(50).setCurse()));
 
     //Misc
     public static final Enchantment MAGMA_WALKER = register("magma_walker", new MagmaWalker(Rarity.RARE, EquipmentSlot.FEET));
-    public static final Enchantment UNVANISHABLE = register("unvanishable", new Unvanishable());
+    public static final Enchantment UNVANISHABLE = register("unvanishable", new GenericEnchantment(new EnchantmentBuilder(Enchantment.Rarity.VERY_RARE, EnchantmentCategory.VANISHABLE, ALL).setMaxLevel(3).setTreasure()));
 
     private static Enchantment register(String registryName, Enchantment enchantment) {
         enchantments.add(enchantment.setRegistryName(registryName));
