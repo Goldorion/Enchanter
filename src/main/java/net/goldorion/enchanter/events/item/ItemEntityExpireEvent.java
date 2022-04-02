@@ -15,12 +15,12 @@ public class ItemEntityExpireEvent {
     @SubscribeEvent
     public static void itemExpires(ItemExpireEvent event) {
         ItemStack stack = event.getEntityItem().getItem();
-        if (Utils.hasEnchantment(stack, ModEnchantments.UNVANISHABLE)) {
-            if (Utils.getEnchantment(ModEnchantments.UNVANISHABLE, stack) != null) {
-                EnchantmentHelper.setEnchantmentLevel(Utils.getEnchantment(ModEnchantments.UNVANISHABLE, stack),
-                        EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.UNVANISHABLE, stack) - 1);
-                if (Utils.hasEnchantmentWithLevel(stack, ModEnchantments.UNVANISHABLE, 0))
-                    Utils.removeEnchant(ModEnchantments.UNVANISHABLE, stack);
+        if (Utils.hasEnchantment(stack, ModEnchantments.UNVANISHABLE.get())) {
+            if (Utils.getEnchantment(ModEnchantments.UNVANISHABLE.get(), stack) != null) {
+                EnchantmentHelper.setEnchantmentLevel(Utils.getEnchantment(ModEnchantments.UNVANISHABLE.get(), stack),
+                        EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.UNVANISHABLE.get(), stack) - 1);
+                if (Utils.hasEnchantmentWithLevel(stack, ModEnchantments.UNVANISHABLE.get(), 0))
+                    Utils.removeEnchant(ModEnchantments.UNVANISHABLE.get(), stack);
                 event.getEntityItem().setExtendedLifetime();
             }
         }

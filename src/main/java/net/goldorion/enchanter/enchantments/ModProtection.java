@@ -3,7 +3,10 @@ package net.goldorion.enchanter.enchantments;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.enchantment.*;
+import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.EnchantmentCategory;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.item.enchantment.Enchantments;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;

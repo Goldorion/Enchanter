@@ -29,7 +29,7 @@ public class MagmaWalker extends Enchantment {
             BlockPos.MutableBlockPos mutableblockpos = new BlockPos.MutableBlockPos();
 
             for (BlockPos blockpos : BlockPos.betweenClosed(blockPos.offset(-f, -1.0D, -f), blockPos.offset(f, -1.0D, f))) {
-                if (blockpos.closerThan(entity.position(), f)) {
+                if (blockpos.closerToCenterThan(entity.position(), f)) {
                     mutableblockpos.set(blockpos.getX(), blockpos.getY() + 1, blockpos.getZ());
                     BlockState blockstate1 = level.getBlockState(mutableblockpos);
                     if (blockstate1.isAir()) {
@@ -37,7 +37,7 @@ public class MagmaWalker extends Enchantment {
                         boolean isFull = blockstate2.getBlock() == Blocks.LAVA && blockstate2.getValue(LiquidBlock.LEVEL) == 0;
                         if (blockstate2.getMaterial() == Material.LAVA && isFull && blockstate.canSurvive(level, blockpos) &&
                                 level.isUnobstructed(blockstate, blockpos, CollisionContext.empty()) && !ForgeEventFactory.onBlockPlace(
-                                        entity, BlockSnapshot.create(level.dimension(), level, blockpos), Direction.UP)) {
+                                entity, BlockSnapshot.create(level.dimension(), level, blockpos), Direction.UP)) {
                             level.setBlockAndUpdate(blockpos, blockstate);
                             level.scheduleTick(blockpos, Blocks.MAGMA_BLOCK, Mth.nextInt(entity.getRandom(), 60, 120));
                         }

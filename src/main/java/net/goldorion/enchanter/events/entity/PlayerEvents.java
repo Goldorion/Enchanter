@@ -20,15 +20,15 @@ public class PlayerEvents {
 
     @SubscribeEvent
     public static void onPlayerSleep(PlayerSleepInBedEvent event) {
-        if (Utils.hasEnchantment(event.getPlayer().getArmorSlots(), ModEnchantments.SLEEPLESS_NIGHT)) {
+        if (Utils.hasEnchantment(event.getPlayer().getArmorSlots(), ModEnchantments.SLEEPLESS_NIGHT.get())) {
             event.setResult(Player.BedSleepingProblem.OTHER_PROBLEM);
         }
     }
 
     @SubscribeEvent
     public static void arrownockEvent(ArrowNockEvent event) {
-        if (Utils.hasEnchantment(event.getBow(), ModEnchantments.SLIPPERY_ROPE)) {
-            if (!event.getWorld().isClientSide && Math.random() < 0.2f * EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.SLIPPERY_ROPE, event.getBow()))
+        if (Utils.hasEnchantment(event.getBow(), ModEnchantments.SLIPPERY_ROPE.get())) {
+            if (!event.getWorld().isClientSide && Math.random() < 0.2f * EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.SLIPPERY_ROPE.get(), event.getBow()))
                 event.setAction(new InteractionResultHolder<>(InteractionResult.CONSUME, event.getBow()));
 
         }
@@ -36,7 +36,7 @@ public class PlayerEvents {
 
     @SubscribeEvent
     public static void shieldBlocksDamage(ShieldBlockEvent event) {
-        if (Utils.hasEnchantment(event.getEntityLiving().getUseItem(), ModEnchantments.HYLIAN_SHIELD))
+        if (Utils.hasEnchantment(event.getEntityLiving().getUseItem(), ModEnchantments.HYLIAN_SHIELD.get()))
             event.setShieldTakesDamage(false);
     }
 
@@ -45,9 +45,9 @@ public class PlayerEvents {
         if (event.getEntityLiving() instanceof Player player) {
             ItemStack itemstack = event.getContext().getItemInHand();
             if (itemstack.getItem() instanceof HoeItem && EnchantmentHelper.getItemEnchantmentLevel(
-                    ModEnchantments.FARMER, itemstack) != 0) {
+                    ModEnchantments.FARMER.get(), itemstack) != 0) {
                 Farmer.applyEffectOnBlocks(player, event.getContext().getHand(), event.getContext().getClickedPos(), itemstack,
-                        EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.FARMER, itemstack));
+                        EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.FARMER.get(), itemstack));
             }
         }
     }

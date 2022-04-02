@@ -1,6 +1,7 @@
 package net.goldorion.enchanter;
 
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -13,5 +14,7 @@ public class Enchanter {
     public static final String MODID = "enchanter";
 
     public Enchanter() {
+        ModEnchantments.REGISTRY.register(
+                FMLJavaModLoadingContext.get().getModEventBus());
     }
 }

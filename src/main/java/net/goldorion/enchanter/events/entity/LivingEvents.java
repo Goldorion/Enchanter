@@ -15,7 +15,6 @@ import net.minecraft.world.item.BowItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraftforge.event.entity.EntityTeleportEvent;
-import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -30,8 +29,8 @@ public class LivingEvents {
 
     @SubscribeEvent
     public static void entityTp(EntityTeleportEvent event) {
-        if (event.getEntity() instanceof Player player && Utils.hasEnchantment(player.getArmorSlots(), ModEnchantments.WRONG_BLOCK)) {
-            int level = Utils.getHighestLevel(player.getArmorSlots(), ModEnchantments.WRONG_BLOCK);
+        if (event.getEntity() instanceof Player player && Utils.hasEnchantment(player.getArmorSlots(), ModEnchantments.WRONG_BLOCK.get())) {
+            int level = Utils.getHighestLevel(player.getArmorSlots(), ModEnchantments.WRONG_BLOCK.get());
             System.out.println(event.getTarget());
             int i = new Random().nextInt(2 + level);
             event.setTargetX(event.getTargetX() + ((new Random().nextBoolean()) ? i * -1 : i));
@@ -45,8 +44,8 @@ public class LivingEvents {
     @SubscribeEvent
     public static void onEntityUpdate(LivingEvent.LivingUpdateEvent event) {
         if (event.getEntityLiving() instanceof Player player) {
-            if (Utils.hasEnchantment(player.getItemBySlot(EquipmentSlot.FEET), ModEnchantments.MAGMA_WALKER)) {
-                MagmaWalker.onEntityMoved(player, player.getLevel(), player.blockPosition(), EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.MAGMA_WALKER, player.getItemBySlot(EquipmentSlot.FEET)));
+            if (Utils.hasEnchantment(player.getItemBySlot(EquipmentSlot.FEET), ModEnchantments.MAGMA_WALKER.get())) {
+                MagmaWalker.onEntityMoved(player, player.getLevel(), player.blockPosition(), EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.MAGMA_WALKER.get(), player.getItemBySlot(EquipmentSlot.FEET)));
             }
         }
     }
@@ -54,8 +53,8 @@ public class LivingEvents {
     @SubscribeEvent
     public static void onStopUsingItem(LivingEntityUseItemEvent.Stop event) {
         if (event.getItem().getItem() instanceof BowItem) {
-            if (Utils.hasEnchantment(event.getItem(), ModEnchantments.MULTI_ARROWS)) {
-                int level = EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.MULTI_ARROWS, event.getItem());
+            if (Utils.hasEnchantment(event.getItem(), ModEnchantments.MULTI_ARROWS.get())) {
+                int level = EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.MULTI_ARROWS.get(), event.getItem());
                 for (int i = 0; i < level; i++) {
                     event.getItem().releaseUsing(event.getEntityLiving().level, event.getEntityLiving(), event.getEntityLiving().getUseItemRemainingTicks());
                 }
@@ -71,7 +70,7 @@ public class LivingEvents {
             Iterable<ItemStack> armorSlots = player.getArmorSlots();
             armorSlots.forEach((itemstack) -> {
                 if (itemstack.getItem() instanceof ArmorItem armorItem) {
-                    if (armorItem.getSlot() == EquipmentSlot.CHEST && EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.SECOND_CHANCE, itemstack) != 0) {
+                    if (armorItem.getSlot() == EquipmentSlot.CHEST && EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.SECOND_CHANCE.get(), itemstack) != 0) {
                         if (event.getSource() != DamageSource.OUT_OF_WORLD) {
                             event.setCanceled(true);
                             player.setHealth(1);
@@ -93,7 +92,7 @@ public class LivingEvents {
             //Magma Walker enchantment
             if (event.getSource() == DamageSource.HOT_FLOOR) {
                 player.getArmorSlots().forEach(itemstack -> {
-                    if (EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.MAGMA_WALKER, itemstack) != 0) {
+                    if (EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.MAGMA_WALKER.get(), itemstack) != 0) {
                         event.setCanceled(true);
                     }
                 });
