@@ -9,7 +9,7 @@ CurseForge: [https://www.curseforge.com/minecraft/mc-mods/enchanter](https://www
 ### Treasures:
 
 * Second chance (Chestplate): The player is kept to 0.5 hearths, but if durability is 1, the chest plate breaks, otherwise the durability is set to 1.
-* Unvanishable: Each time, the entity item life reaches 0 tick, 5 more minutes will be added for each level. Remove 1 level/5 minutes.
+* Hylian Shield: The shield works as normal, but it does not take damage values
 
 ### Curses:
 * Sleepless Night: You can't sleep! You're too busy to sleep anyway.
@@ -34,3 +34,4 @@ CurseForge: [https://www.curseforge.com/minecraft/mc-mods/enchanter](https://www
 
 ### Misc:
 * Magma Walker: Change lava into magma blocks when walking on it and disable damages when walking on magma blocks, but removes 1 durability for every damage
+* Unvanishable: Each time, the entity item life reaches 0 tick, 5 more minutes will be added for each level. Remove 1 level/5 minutes.
