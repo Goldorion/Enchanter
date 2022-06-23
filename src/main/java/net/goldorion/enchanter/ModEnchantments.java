@@ -40,8 +40,8 @@ public class ModEnchantments {
             .setCanEnchant(itemStack -> itemStack.getItem() instanceof ShieldItem)));
     // Curses
     public static final RegistryObject<Enchantment> SLEEPLESS_NIGHT = register("sleepless_night", new GenericEnchantment(new EnchantmentBuilder(Rarity.VERY_RARE, EnchantmentCategory.ARMOR, ARMORS).setMinCost(25).setMaxCost(50).setTreasure().setCurse()));
-    public static final RegistryObject<Enchantment> WRONG_BLOCK = register("wrong_block", new GenericEnchantment(new EnchantmentBuilder(Rarity.RARE, EnchantmentCategory.ARMOR, ARMORS).setMaxLevel(5).setTreasure().setCurse()));
-    public static final RegistryObject<Enchantment> SLIPPERY_ROPE = register("slippery_rope", new GenericEnchantment(new EnchantmentBuilder(Rarity.RARE, EnchantmentCategory.BOW, HANDS).setMaxLevel(4).setMinCost(20).setMaxCost(50).setCurse()));
+    public static final RegistryObject<Enchantment> WRONG_BLOCK = register("wrong_block", new GenericEnchantment(new EnchantmentBuilder(Rarity.RARE, EnchantmentCategory.ARMOR, ARMORS).setMaxLevel(5).setTreasure().setTreasure().setCurse()));
+    public static final RegistryObject<Enchantment> SLIPPERY_ROPE = register("slippery_rope", new GenericEnchantment(new EnchantmentBuilder(Rarity.RARE, EnchantmentCategory.BOW, HANDS).setMaxLevel(4).setMinCost(20).setMaxCost(50).setTreasure().setCurse()));
     //Misc
     public static final RegistryObject<Enchantment> MAGMA_WALKER = register("magma_walker", new MagmaWalker(Rarity.RARE, EquipmentSlot.FEET));
     public static final RegistryObject<Enchantment> UNVANISHABLE = register("unvanishable", new GenericEnchantment(new EnchantmentBuilder(Enchantment.Rarity.VERY_RARE, EnchantmentCategory.VANISHABLE, ALL).setMaxLevel(3).setTreasure()));
