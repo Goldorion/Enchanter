@@ -9,6 +9,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.FarmBlock;
 import net.minecraft.world.level.block.GrassBlock;
 
 public class Farmer extends Enchantment {
@@ -34,7 +35,7 @@ public class Farmer extends Enchantment {
     private static void changeBlock(Player player, BlockPos pos, ItemStack stack, InteractionHand hand) {
         if (player.getLevel().isEmptyBlock(pos.above())) {
             if (player.getLevel().getBlockState(pos).getBlock() instanceof GrassBlock || player.getLevel().getBlockState(pos).getBlock() == Blocks.DIRT) {
-                player.getLevel().setBlock(pos, Blocks.FARMLAND.defaultBlockState(), 0);
+                player.getLevel().setBlock(pos, Blocks.FARMLAND.defaultBlockState(), 3);
                 stack.hurtAndBreak(1, player, player_ -> player_.broadcastBreakEvent(hand));
             }
         }

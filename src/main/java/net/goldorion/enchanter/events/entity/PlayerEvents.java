@@ -9,9 +9,13 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.GrassBlock;
+import net.minecraftforge.common.ToolActions;
 import net.minecraftforge.event.entity.living.ShieldBlockEvent;
 import net.minecraftforge.event.entity.player.ArrowNockEvent;
 import net.minecraftforge.event.entity.player.PlayerSleepInBedEvent;
+import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
@@ -41,13 +45,16 @@ public class PlayerEvents {
     }
 
     @SubscribeEvent
-    public static void onItemUsed(net.minecraftforge.event.entity.player.UseHoeEvent event) {
-        if (event.getEntityLiving() instanceof Player player) {
+    public static void onItemUsed(BlockEvent.BlockToolModificationEvent event) {
+        if (event.getToolAction() == ToolActions.HOE_TILL) {
             ItemStack itemstack = event.getContext().getItemInHand();
-            if (itemstack.getItem() instanceof HoeItem && EnchantmentHelper.getItemEnchantmentLevel(
+            if (itemstack.getItem() instanceof HoeItem && EnchantmentHelper.getTagEnchantmentLevel(
                     ModEnchantments.FARMER.get(), itemstack) != 0) {
-                Farmer.applyEffectOnBlocks(player, event.getContext().getHand(), event.getContext().getClickedPos(), itemstack,
-                        EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.FARMER.get(), itemstack));
+                if (event.getContext().getLevel().getBlockState(event.getPos()).getBlock() instanceof GrassBlock ||
+                        event.getContext().getLevel().getBlockState(event.getPos()).getBlock() == Blocks.DIRT) {
+                    Farmer.applyEffectOnBlocks(event.getPlayer(), event.getContext().getHand(), event.getContext().getClickedPos(), itemstack,
+                            EnchantmentHelper.getTagEnchantmentLevel(ModEnchantments.FARMER.get(), itemstack));
+                }
             }
         }
     }
