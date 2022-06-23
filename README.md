@@ -15,6 +15,7 @@ CurseForge: [https://www.curseforge.com/minecraft/mc-mods/enchanter](https://www
 * Sleepless Night: You can't sleep! You're too busy to sleep anyway.
 * Wrong block (Armor): Randomly teleport you in a square of 2 * *level* blocks
 * Slippery rope: 20%/level of chance to fail shouting with the bow
+* Slippery hook: 15%/level of chance to get nothing when fishing
 
 ### Protections:
 * Falling Block Protection (Helmet): 0.5 heart/level

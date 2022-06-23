@@ -14,4 +14,5 @@
 - Unvanishable: Each time, the entity item life reaches 0 tick, 5 more minutes will be added for each level. Remove 1 level/5 minutes
 - Wrong block (Armor): Randomly teleport you in a square of 2 * *level* blocks
 - Slippery rope: 20%/level of chance to fail shouting with the bow
+- Slippery hook: 15%/level of chance to get nothing when fishing
 - Hylian Shield: The shield works as normal, but it does not take damage values

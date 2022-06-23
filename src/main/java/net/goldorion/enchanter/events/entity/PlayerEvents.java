@@ -14,6 +14,7 @@ import net.minecraft.world.level.block.GrassBlock;
 import net.minecraftforge.common.ToolActions;
 import net.minecraftforge.event.entity.living.ShieldBlockEvent;
 import net.minecraftforge.event.entity.player.ArrowNockEvent;
+import net.minecraftforge.event.entity.player.ItemFishedEvent;
 import net.minecraftforge.event.entity.player.PlayerSleepInBedEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -35,6 +36,16 @@ public class PlayerEvents {
             if (!event.getWorld().isClientSide && Math.random() < 0.2f * EnchantmentHelper.getTagEnchantmentLevel(ModEnchantments.SLIPPERY_ROPE.get(), event.getBow()))
                 event.setAction(new InteractionResultHolder<>(InteractionResult.CONSUME, event.getBow()));
 
+        }
+    }
+
+    @SubscribeEvent
+    public static void itemFished(ItemFishedEvent event) {
+        if (Utils.hasEnchantment(event.getPlayer().getItemInHand(event.getPlayer().getUsedItemHand()), ModEnchantments.SLIPPERY_HOOK.get())) {
+            if (!event.getPlayer().getLevel().isClientSide() &&
+                    Math.random() * 100 > (15 * EnchantmentHelper.getTagEnchantmentLevel(ModEnchantments.SLIPPERY_HOOK.get(), event.getPlayer().getUseItem()))) {
+                event.setCanceled(true);
+            }
         }
     }
 
