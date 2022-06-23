@@ -32,7 +32,7 @@ public class PlayerEvents {
     @SubscribeEvent
     public static void arrownockEvent(ArrowNockEvent event) {
         if (Utils.hasEnchantment(event.getBow(), ModEnchantments.SLIPPERY_ROPE.get())) {
-            if (!event.getWorld().isClientSide && Math.random() < 0.2f * EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.SLIPPERY_ROPE.get(), event.getBow()))
+            if (!event.getWorld().isClientSide && Math.random() < 0.2f * EnchantmentHelper.getTagEnchantmentLevel(ModEnchantments.SLIPPERY_ROPE.get(), event.getBow()))
                 event.setAction(new InteractionResultHolder<>(InteractionResult.CONSUME, event.getBow()));
 
         }

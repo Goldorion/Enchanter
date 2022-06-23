@@ -25,11 +25,11 @@ public class ModProtection extends Enchantment {
     }
 
     private static boolean hasNoProtectionEnchants(ItemStack item) {
-        return EnchantmentHelper.getItemEnchantmentLevel(Enchantments.ALL_DAMAGE_PROTECTION, item) != 0 &&
-                EnchantmentHelper.getItemEnchantmentLevel(Enchantments.BLAST_PROTECTION, item) != 0 &&
-                EnchantmentHelper.getItemEnchantmentLevel(Enchantments.FALL_PROTECTION, item) != 0 &&
-                EnchantmentHelper.getItemEnchantmentLevel(Enchantments.FIRE_PROTECTION, item) != 0 &&
-                EnchantmentHelper.getItemEnchantmentLevel(Enchantments.PROJECTILE_PROTECTION, item) != 0;
+        return EnchantmentHelper.getTagEnchantmentLevel(Enchantments.ALL_DAMAGE_PROTECTION, item) != 0 &&
+                EnchantmentHelper.getTagEnchantmentLevel(Enchantments.BLAST_PROTECTION, item) != 0 &&
+                EnchantmentHelper.getTagEnchantmentLevel(Enchantments.FALL_PROTECTION, item) != 0 &&
+                EnchantmentHelper.getTagEnchantmentLevel(Enchantments.FIRE_PROTECTION, item) != 0 &&
+                EnchantmentHelper.getTagEnchantmentLevel(Enchantments.PROJECTILE_PROTECTION, item) != 0;
     }
 
     @Override

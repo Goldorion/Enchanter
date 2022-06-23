@@ -13,7 +13,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class Utils {
 
     public static boolean hasEnchantment(ItemStack itemstack, Enchantment enchantment) {
-        return EnchantmentHelper.getItemEnchantmentLevel(enchantment, itemstack) != 0;
+        return EnchantmentHelper.getTagEnchantmentLevel(enchantment, itemstack) != 0;
     }
 
     public static boolean hasEnchantment(Iterable<ItemStack> stack, Enchantment enchantment) {
@@ -27,14 +27,14 @@ public class Utils {
     }
 
     public static boolean hasEnchantmentWithLevel(ItemStack itemstack, Enchantment enchantment, int level) {
-        return EnchantmentHelper.getItemEnchantmentLevel(enchantment, itemstack) >= level;
+        return EnchantmentHelper.getTagEnchantmentLevel(enchantment, itemstack) >= level;
     }
 
     public static int getHighestLevel(Iterable<ItemStack> stacks, Enchantment enchantment) {
         AtomicInteger level = new AtomicInteger();
         stacks.forEach(stack -> {
-            if (hasEnchantment(stack, enchantment) && level.get() < EnchantmentHelper.getItemEnchantmentLevel(enchantment, stack))
-                level.set(EnchantmentHelper.getItemEnchantmentLevel(enchantment, stack));
+            if (hasEnchantment(stack, enchantment) && level.get() < EnchantmentHelper.getTagEnchantmentLevel(enchantment, stack))
+                level.set(EnchantmentHelper.getTagEnchantmentLevel(enchantment, stack));
         });
 
         return level.get();
