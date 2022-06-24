@@ -1,13 +1,12 @@
 # Enchanter
-*Enchanter* adds a lot of new enchantments to your game for all types of players. From expanded protection enchantments to curses preventing you to sleep, you will have new enchantments for your play style!
-New enchantments will be added to each update!
+*Enchanter* adds a lot of new enchantments to your game for all types of players. From expanded protection enchantments to multiples curses, you will have new enchantments for your play style!
 
 CurseForge: [https://www.curseforge.com/minecraft/mc-mods/enchanter](https://www.curseforge.com/minecraft/mc-mods/enchanter)
 [![](http://cf.way2muchnoise.eu/full_enchanter_downloads.svg)](https://minecraft.curseforge.com/projects/enchanter)
 
 ## Enchantments
-### Treasures:
 
+### Treasures:
 * Second chance (Chestplate): The player is kept to 0.5 hearths, but if durability is 1, the chest plate breaks, otherwise the durability is set to 1.
 * Hylian Shield: The shield works as normal, but it does not take damage values
 
