@@ -28,7 +28,8 @@ CurseForge: [https://www.curseforge.com/minecraft/mc-mods/enchanter](https://www
     * 4: 23 damages before taking one
 
 ### Tools:
-* Farmer: Till the dirt and grass blocks in a square with a radius of level * 2 + 1
+* Farmer: Till the dirt and grass blocks in a square with a diameter of level * 2 + 1
+* Miner: Mine blocks in a square with a diameter of *level* * 2 + 1
 
 ### Weapons:
 * Multi Arrows (Bow): +1 arrow / level

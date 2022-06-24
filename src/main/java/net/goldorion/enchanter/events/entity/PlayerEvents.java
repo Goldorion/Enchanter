@@ -3,11 +3,13 @@ package net.goldorion.enchanter.events.entity;
 import net.goldorion.enchanter.ModEnchantments;
 import net.goldorion.enchanter.Utils;
 import net.goldorion.enchanter.enchantments.Farmer;
+import net.goldorion.enchanter.enchantments.Miner;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.PickaxeItem;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.GrassBlock;
@@ -57,16 +59,23 @@ public class PlayerEvents {
 
     @SubscribeEvent
     public static void onItemUsed(BlockEvent.BlockToolModificationEvent event) {
+        ItemStack itemstack = event.getContext().getItemInHand();
         if (event.getToolAction() == ToolActions.HOE_TILL) {
-            ItemStack itemstack = event.getContext().getItemInHand();
-            if (itemstack.getItem() instanceof HoeItem && EnchantmentHelper.getTagEnchantmentLevel(
-                    ModEnchantments.FARMER.get(), itemstack) != 0) {
-                if (event.getContext().getLevel().getBlockState(event.getPos()).getBlock() instanceof GrassBlock ||
-                        event.getContext().getLevel().getBlockState(event.getPos()).getBlock() == Blocks.DIRT) {
-                    Farmer.applyEffectOnBlocks(event.getPlayer(), event.getContext().getHand(), event.getContext().getClickedPos(), itemstack,
-                            EnchantmentHelper.getTagEnchantmentLevel(ModEnchantments.FARMER.get(), itemstack));
-                }
+            if (itemstack.getItem() instanceof HoeItem && EnchantmentHelper.getTagEnchantmentLevel(ModEnchantments.FARMER.get(), itemstack) != 0 &&
+                    (event.getContext().getLevel().getBlockState(event.getPos()).getBlock() instanceof GrassBlock ||
+                            event.getContext().getLevel().getBlockState(event.getPos()).getBlock() == Blocks.DIRT)) {
+                Farmer.applyEffectOnBlocks(event.getPlayer(), event.getContext().getHand(), event.getContext().getClickedPos(), itemstack,
+                        EnchantmentHelper.getTagEnchantmentLevel(ModEnchantments.FARMER.get(), itemstack));
             }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onBlockBreak(BlockEvent.BreakEvent event) {
+        ItemStack itemstack = event.getPlayer().getItemInHand(event.getPlayer().getUsedItemHand());
+        if (EnchantmentHelper.getTagEnchantmentLevel(ModEnchantments.MINER.get(), itemstack) != 0) {
+            Miner.applyEffectOnBlocks(event.getWorld(), event.getPlayer(), event.getPos(), itemstack,
+                    EnchantmentHelper.getTagEnchantmentLevel(ModEnchantments.MINER.get(), itemstack));
         }
     }
 }
