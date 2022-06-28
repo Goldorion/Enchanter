@@ -1,5 +1,7 @@
 package net.goldorion.enchanter.enchantments;
 
+import net.goldorion.enchanter.EnchantmentBuilder;
+import net.goldorion.enchanter.GenericEnchantment;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ItemStack;
@@ -11,7 +13,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-public class ModProtection extends Enchantment {
+public class ModProtection extends GenericEnchantment {
 
     private final Type type;
 
@@ -20,16 +22,16 @@ public class ModProtection extends Enchantment {
     }
 
     public ModProtection(Rarity rarity, Type type, EnchantmentCategory category, EquipmentSlot[] slots) {
-        super(rarity, category, slots);
+        super(new EnchantmentBuilder(rarity, category, slots));
         this.type = type;
     }
 
     private static boolean hasNoProtectionEnchants(ItemStack item) {
-        return EnchantmentHelper.getTagEnchantmentLevel(Enchantments.ALL_DAMAGE_PROTECTION, item) != 0 &&
-                EnchantmentHelper.getTagEnchantmentLevel(Enchantments.BLAST_PROTECTION, item) != 0 &&
-                EnchantmentHelper.getTagEnchantmentLevel(Enchantments.FALL_PROTECTION, item) != 0 &&
-                EnchantmentHelper.getTagEnchantmentLevel(Enchantments.FIRE_PROTECTION, item) != 0 &&
-                EnchantmentHelper.getTagEnchantmentLevel(Enchantments.PROJECTILE_PROTECTION, item) != 0;
+        return EnchantmentHelper.getItemEnchantmentLevel(Enchantments.ALL_DAMAGE_PROTECTION, item) != 0 &&
+                EnchantmentHelper.getItemEnchantmentLevel(Enchantments.BLAST_PROTECTION, item) != 0 &&
+                EnchantmentHelper.getItemEnchantmentLevel(Enchantments.FALL_PROTECTION, item) != 0 &&
+                EnchantmentHelper.getItemEnchantmentLevel(Enchantments.FIRE_PROTECTION, item) != 0 &&
+                EnchantmentHelper.getItemEnchantmentLevel(Enchantments.PROJECTILE_PROTECTION, item) != 0;
     }
 
     @Override
@@ -56,7 +58,7 @@ public class ModProtection extends Enchantment {
     }
 
     @Override
-    public boolean canEnchant(ItemStack itemstack) {
+    public boolean canEnchant(@NotNull ItemStack itemstack) {
         return super.canEnchant(itemstack) && hasNoProtectionEnchants(itemstack);
     }
 

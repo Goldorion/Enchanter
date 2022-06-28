@@ -1,23 +1,23 @@
 package net.goldorion.enchanter.enchantments;
 
+import net.goldorion.enchanter.EnchantmentBuilder;
+import net.goldorion.enchanter.GenericEnchantment;
 import net.goldorion.enchanter.ModEnchantments;
 import net.goldorion.enchanter.Utils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.PickaxeItem;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
 import net.minecraft.world.level.GameType;
 import net.minecraft.world.level.LevelAccessor;
 
-public class Miner extends Enchantment {
+public class Miner extends GenericEnchantment {
 
     public Miner() {
-        super(Rarity.UNCOMMON, EnchantmentCategory.DIGGER, ModEnchantments.HANDS);
+        super(new EnchantmentBuilder(Rarity.UNCOMMON, EnchantmentCategory.DIGGER, ModEnchantments.HANDS));
     }
 
     public static void applyEffectOnBlocks(LevelAccessor level, Player player, BlockPos pos, ItemStack stack, int radius) {
