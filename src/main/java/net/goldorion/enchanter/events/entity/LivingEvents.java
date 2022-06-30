@@ -31,13 +31,10 @@ public class LivingEvents {
     public static void entityTp(EntityTeleportEvent event) {
         if (event.getEntity() instanceof Player player && Utils.hasEnchantment(player.getArmorSlots(), ModEnchantments.WRONG_BLOCK.get())) {
             int level = Utils.getHighestLevel(player.getArmorSlots(), ModEnchantments.WRONG_BLOCK.get());
-            System.out.println(event.getTarget());
             int i = new Random().nextInt(2 + level);
             event.setTargetX(event.getTargetX() + ((new Random().nextBoolean()) ? i * -1 : i));
             i = new Random().nextInt(2 + level);
             event.setTargetZ(event.getTargetZ() + ((new Random().nextBoolean()) ? i * -1 : i));
-
-            System.out.println(event.getTarget());
         }
     }
 
