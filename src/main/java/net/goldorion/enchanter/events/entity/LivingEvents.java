@@ -39,8 +39,8 @@ public class LivingEvents {
     }
 
     @SubscribeEvent
-    public static void onEntityUpdate(LivingEvent.LivingUpdateEvent event) {
-        if (event.getEntityLiving() instanceof Player player) {
+    public static void onEntityUpdate(LivingEvent.LivingTickEvent event) {
+        if (event.getEntity() instanceof Player player) {
             if (Utils.hasEnchantment(player.getItemBySlot(EquipmentSlot.FEET), ModEnchantments.MAGMA_WALKER.get())) {
                 MagmaWalker.onEntityMoved(player, player.getLevel(), player.blockPosition(), EnchantmentHelper.getTagEnchantmentLevel(ModEnchantments.MAGMA_WALKER.get(), player.getItemBySlot(EquipmentSlot.FEET)));
             }
@@ -53,7 +53,7 @@ public class LivingEvents {
             if (Utils.hasEnchantment(event.getItem(), ModEnchantments.MULTI_ARROWS.get())) {
                 int level = EnchantmentHelper.getTagEnchantmentLevel(ModEnchantments.MULTI_ARROWS.get(), event.getItem());
                 for (int i = 0; i < level; i++) {
-                    event.getItem().releaseUsing(event.getEntityLiving().level, event.getEntityLiving(), event.getEntityLiving().getUseItemRemainingTicks());
+                    event.getItem().releaseUsing(event.getEntity().level, event.getEntity(), event.getEntity().getUseItemRemainingTicks());
                 }
             }
         }
@@ -61,7 +61,7 @@ public class LivingEvents {
 
     @SubscribeEvent
     public static void onEntityDeath(net.minecraftforge.event.entity.living.LivingDeathEvent event) {
-        LivingEntity entity = event.getEntityLiving();
+        LivingEntity entity = event.getEntity();
         //Second chance enchantment
         if (entity instanceof Player player) {
             Iterable<ItemStack> armorSlots = player.getArmorSlots();
@@ -85,7 +85,7 @@ public class LivingEvents {
 
     @SubscribeEvent
     public static void onEntityDamagedEvent(net.minecraftforge.event.entity.living.LivingDamageEvent event) {
-        if (event.getEntityLiving() instanceof Player player) {
+        if (event.getEntity() instanceof Player player) {
             //Magma Walker enchantment
             if (event.getSource() == DamageSource.HOT_FLOOR) {
                 player.getArmorSlots().forEach(itemstack -> {

@@ -14,14 +14,14 @@ public class ItemEntityExpireEvent {
 
     @SubscribeEvent
     public static void itemExpires(ItemExpireEvent event) {
-        ItemStack stack = event.getEntityItem().getItem();
+        ItemStack stack = event.getEntity().getItem();
         if (Utils.hasEnchantment(stack, ModEnchantments.UNVANISHABLE.get())) {
             if (Utils.getEnchantment(ModEnchantments.UNVANISHABLE.get(), stack) != null) {
                 EnchantmentHelper.setEnchantmentLevel(Utils.getEnchantment(ModEnchantments.UNVANISHABLE.get(), stack),
                         EnchantmentHelper.getTagEnchantmentLevel(ModEnchantments.UNVANISHABLE.get(), stack) - 1);
                 if (Utils.hasEnchantmentWithLevel(stack, ModEnchantments.UNVANISHABLE.get(), 0))
                     Utils.removeEnchant(ModEnchantments.UNVANISHABLE.get(), stack);
-                event.getEntityItem().setExtendedLifetime();
+                event.getEntity().setExtendedLifetime();
             }
         }
     }
