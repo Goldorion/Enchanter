@@ -9,16 +9,24 @@ import org.spongepowered.asm.mixin.Shadow;
 @Mixin(Entity.class)
 public abstract class EntityMixin {
 
-    @Shadow public abstract double getY();
+    @Shadow
+    public Level level;
 
-    @Shadow public abstract boolean isRemoved();
+    @Shadow
+    public abstract double getY();
 
-    @Shadow public abstract double getX();
+    @Shadow
+    public abstract boolean isRemoved();
 
-    @Shadow public abstract void setPos(double d, double e, double f);
+    @Shadow
+    public abstract double getX();
 
-    @Shadow public abstract int getId();
+    @Shadow
+    public abstract void setPos(double d, double e, double f);
 
-    @Shadow public Level level;
-    @Shadow public abstract BlockPos blockPosition();
+    @Shadow
+    public abstract int getId();
+
+    @Shadow
+    public abstract BlockPos blockPosition();
 }

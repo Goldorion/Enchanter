@@ -2,8 +2,6 @@ package net.goldorion.enchanter.mixins.entity;
 
 import net.goldorion.enchanter.ModEnchantments;
 import net.goldorion.enchanter.Utils;
-import net.goldorion.enchanter.enchantments.Miner;
-import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
@@ -12,14 +10,15 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(ItemEntity.class)
 public abstract class ItemEntityExpireEvent {
 
-    @Shadow public abstract ItemStack getItem();
+    @Shadow
+    public abstract ItemStack getItem();
 
-    @Shadow public abstract void setExtendedLifetime();
+    @Shadow
+    public abstract void setExtendedLifetime();
 
     @Inject(method = "tick", at = @At("HEAD"))
     public void onEntityDamagedEvent(CallbackInfo ci) {

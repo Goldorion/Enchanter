@@ -35,7 +35,8 @@ public class MagmaWalker extends GenericEnchantment {
             mutableBlockPos.set(blockPos2.getX(), blockPos2.getY() + 1, blockPos2.getZ());
             BlockState blockState2 = level.getBlockState(mutableBlockPos);
             if (!blockState2.isAir() || (blockState3 = level.getBlockState(blockPos2)).getMaterial() != Material.LAVA || blockState3.getValue(LiquidBlock.LEVEL) != 0 ||
-                    !blockState.canSurvive(level, blockPos2) || !level.isUnobstructed(blockState, blockPos2, CollisionContext.empty())) continue;
+                    !blockState.canSurvive(level, blockPos2) || !level.isUnobstructed(blockState, blockPos2, CollisionContext.empty()))
+                continue;
             level.setBlockAndUpdate(blockPos2, blockState);
             level.scheduleTick(blockPos2, Blocks.MAGMA_BLOCK, Mth.nextInt(entity.getRandom(), 60, 120));
         }
