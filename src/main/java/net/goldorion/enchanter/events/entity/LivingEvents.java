@@ -15,6 +15,8 @@ import net.minecraft.world.item.BowItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraftforge.event.entity.EntityTeleportEvent;
+import net.minecraftforge.event.entity.living.EnderManAngerEvent;
+import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -84,7 +86,7 @@ public class LivingEvents {
     }
 
     @SubscribeEvent
-    public static void onEntityDamagedEvent(net.minecraftforge.event.entity.living.LivingDamageEvent event) {
+    public static void onEntityDamaged(net.minecraftforge.event.entity.living.LivingDamageEvent event) {
         if (event.getEntity() instanceof Player player) {
             //Magma Walker enchantment
             if (event.getSource() == DamageSource.HOT_FLOOR) {
@@ -96,4 +98,11 @@ public class LivingEvents {
             }
         }
     }
+
+    @SubscribeEvent
+    public static void onEndermanAnger(EnderManAngerEvent event) {
+        event.setCanceled(Utils.hasEnchantment(event.getPlayer().getItemBySlot(EquipmentSlot.HEAD),
+                ModEnchantments.ENDER_FRIEND.get()));
+    }
+
 }

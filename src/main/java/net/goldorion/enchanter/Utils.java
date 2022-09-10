@@ -17,7 +17,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class Utils {
 
     public static boolean hasEnchantment(ItemStack itemstack, Enchantment enchantment) {
-        return EnchantmentHelper.getTagEnchantmentLevel(enchantment, itemstack) != 0;
+        return hasEnchantmentWithLevel(itemstack, enchantment, 1);
     }
 
     public static boolean hasEnchantment(Iterable<ItemStack> stack, Enchantment enchantment) {
@@ -51,9 +51,8 @@ public class Utils {
         for (int i = 0; i < listtag.size(); ++i) {
             CompoundTag compoundtag = listtag.getCompound(i);
             ResourceLocation resourcelocation1 = EnchantmentHelper.getEnchantmentId(compoundtag);
-            if (resourcelocation1 != null && resourcelocation1.equals(resourcelocation)) {
+            if (resourcelocation1 != null && resourcelocation1.equals(resourcelocation))
                 return compoundtag;
-            }
         }
 
         return null;
