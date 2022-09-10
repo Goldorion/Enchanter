@@ -10,6 +10,7 @@ public class Enchanter implements ModInitializer {
     public static final Logger LOGGER = LogManager.getLogger("Enchanter");
 
     public static final String MODID = "enchanter";
+
     @Override
     public void onInitialize() {
         LOGGER.debug("Registering enchantments...");

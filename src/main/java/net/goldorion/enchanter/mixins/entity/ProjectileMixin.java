@@ -9,5 +9,7 @@ import org.spongepowered.asm.mixin.Shadow;
 @Mixin(Projectile.class)
 public abstract class ProjectileMixin extends EntityMixin {
 
-    @Shadow @Nullable public abstract Entity getOwner();
+    @Shadow
+    @Nullable
+    public abstract Entity getOwner();
 }

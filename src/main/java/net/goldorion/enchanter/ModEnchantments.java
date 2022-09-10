@@ -5,7 +5,6 @@ import net.goldorion.enchanter.enchantments.MagmaWalker;
 import net.goldorion.enchanter.enchantments.Miner;
 import net.goldorion.enchanter.enchantments.ModProtection;
 import net.minecraft.core.Registry;
-import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ShieldItem;
@@ -39,7 +38,7 @@ public class ModEnchantments {
 
 
     // Curses
-    public static Enchantment SLEEPLESS_NIGHT ;
+    public static Enchantment SLEEPLESS_NIGHT;
     public static Enchantment WRONG_BLOCK;
     public static Enchantment SLIPPERY_ROPE;
     public static Enchantment SLIPPERY_HOOK;
@@ -47,11 +46,12 @@ public class ModEnchantments {
 
     //Misc
     public static Enchantment MAGMA_WALKER;
-    public static Enchantment UNVANISHABLE;
 
 
     // Treasures
     public static Enchantment SECOND_CHANCE;
+    public static Enchantment UNVANISHABLE;
+    public static Enchantment ENDER_FRIEND;
 
     public static void register() {
         //Protections
@@ -65,24 +65,28 @@ public class ModEnchantments {
         //Tools
         FARMER = register("farmer", new Farmer());
         MINER = register("miner", new Miner());
-        MULTI_ARROWS = register("multi_arrows", new GenericEnchantment(new EnchantmentBuilder(Rarity.RARE, EnchantmentCategory.BOW, HANDS).setMaxLevel(4).setMinCost(20).setMaxCost(50).setCheckCompatibility(enchantment -> enchantment != Enchantments.INFINITY_ARROWS)));
-        HYLIAN_SHIELD = register("hylian_shield", new GenericEnchantment(new EnchantmentBuilder(Rarity.VERY_RARE, EnchantmentCategory.BREAKABLE, HANDS)
-                .setMinCost(30).setMaxCost(55).setTreasure().setCheckCompatibility(e -> !(e == Enchantments.MENDING || e == Enchantments.UNBREAKING))
-                .setCanEnchant(itemStack -> itemStack.getItem() instanceof ShieldItem)));
+        MULTI_ARROWS = register("multi_arrows", new GenericEnchantment(new EnchantmentBuilder(Rarity.RARE, EnchantmentCategory.BOW, HANDS)
+                .setMaxLevel(4).setMinCost(20).setMaxCost(50).setCheckCompatibility(enchantment -> enchantment != Enchantments.INFINITY_ARROWS)));
 
         //Curses
         SLEEPLESS_NIGHT = register("sleepless_night", new GenericEnchantment(new EnchantmentBuilder(Rarity.VERY_RARE, EnchantmentCategory.ARMOR, ARMORS).setMinCost(25).setMaxCost(50).setTreasure().setCurse()));
-        WRONG_BLOCK = register("wrong_block", new GenericEnchantment(new EnchantmentBuilder(Rarity.RARE, EnchantmentCategory.ARMOR, ARMORS).setMaxLevel(5).setTreasure().setTreasure().setCurse()));
+        WRONG_BLOCK = register("wrong_block", new GenericEnchantment(new EnchantmentBuilder(Rarity.RARE, EnchantmentCategory.ARMOR, ARMORS).setMaxLevel(5).setTreasure().setCurse()));
         SLIPPERY_ROPE = register("slippery_rope", new GenericEnchantment(new EnchantmentBuilder(Rarity.RARE, EnchantmentCategory.BOW, HANDS).setMaxLevel(4).setMinCost(20).setMaxCost(50).setTreasure().setCurse()));
         SLIPPERY_HOOK = register("slippery_hook", new GenericEnchantment(new EnchantmentBuilder(Rarity.RARE, EnchantmentCategory.FISHING_ROD, HANDS).setMaxLevel(4).setMinCost(20).setMaxCost(50).setTreasure().setCurse()));
 
         //Misc
         MAGMA_WALKER = register("magma_walker", new MagmaWalker(Rarity.RARE, EquipmentSlot.FEET));
-        UNVANISHABLE = register("unvanishable", new GenericEnchantment(new EnchantmentBuilder(Enchantment.Rarity.VERY_RARE, EnchantmentCategory.VANISHABLE, ALL).setMaxLevel(3).setTreasure()));
 
         // Treasures
+        HYLIAN_SHIELD = register("hylian_shield", new GenericEnchantment(new EnchantmentBuilder(Rarity.VERY_RARE, EnchantmentCategory.BREAKABLE, HANDS)
+                .setMinCost(30).setMaxCost(55).setTreasure().setCheckCompatibility(e -> !(e == Enchantments.MENDING || e == Enchantments.UNBREAKING))
+                .setCanEnchant(itemStack -> itemStack.getItem() instanceof ShieldItem)));
+        UNVANISHABLE = register("unvanishable", new GenericEnchantment(new EnchantmentBuilder(Enchantment.Rarity.VERY_RARE, EnchantmentCategory.VANISHABLE, ALL)
+                .setMaxLevel(3).setTreasure()));
         SECOND_CHANCE = register("second_chance", new GenericEnchantment(new EnchantmentBuilder(Rarity.VERY_RARE, EnchantmentCategory.ARMOR_CHEST, new EquipmentSlot[]{EquipmentSlot.CHEST})
-                .setMinCost(25).setMaxCost(50).setCheckCompatibility(e -> !(e instanceof MendingEnchantment))));
+                .setTreasure().setMinCost(25).setMaxCost(50).setCheckCompatibility(e -> !(e instanceof MendingEnchantment))));
+        ENDER_FRIEND = register("ender_friend", new GenericEnchantment(new EnchantmentBuilder(Rarity.RARE, EnchantmentCategory.ARMOR_HEAD, new EquipmentSlot[]{EquipmentSlot.HEAD})
+                .setTreasure().setMinCost(25).setMaxCost(50)));
     }
 
     private static Enchantment register(String registryName, Enchantment enchantment) {

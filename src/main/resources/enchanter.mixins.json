@@ -4,6 +4,7 @@
   "package": "net.goldorion.enchanter.mixins",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "entity.EnderManMixin",
     "entity.EntityMixin",
     "entity.FishingHookMixin",
     "entity.ItemEntityExpireEvent",

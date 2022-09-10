@@ -17,3 +17,4 @@
 - Slippery rope: 20%/level of chance to fail shouting with the bow
 - Slippery hook: 15%/level of chance to get nothing when fishing
 - Hylian Shield: The shield works as normal, but it does not take damage values
+- Ender friend: When equipped on a helmet, ender men will not attack the player (like pumpkins)
