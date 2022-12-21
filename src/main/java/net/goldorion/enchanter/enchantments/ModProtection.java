@@ -62,7 +62,7 @@ public class ModProtection extends Enchantment {
 
     public enum Type {
         CACTUS(10, 10, 5, DamageSource.CACTUS),
-        FALLING_BLOCK(5, 6, 3, DamageSource.ANVIL, DamageSource.FALLING_BLOCK),
+        FALLING_BLOCK(5, 6, 3, DamageSource.anvil(null), DamageSource.FALL, DamageSource.STALAGMITE),
         LIGHTNING_BOLT(15, 12, 10, DamageSource.LIGHTNING_BOLT);
 
         private final int minCost;
